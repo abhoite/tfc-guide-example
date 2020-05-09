@@ -20,3 +20,13 @@ resource "aws_dynamodb_table" "tfc_example_table" {
     user_name = var.tag_user_name
   }
 }
+
+resource "aws_s3_bucket" "ab-test" {
+  bucket = "ab-test-terrafrom"
+  acl    = "private"
+
+  tags = {
+    Name        = "ab-test-terrafrom"
+    Environment = "Dev"
+  }
+}
